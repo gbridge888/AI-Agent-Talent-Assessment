@@ -1,0 +1,6 @@
+Candidate_Name,Department,Logic_Workflow_Score,Tool_Knowledge_Score,Safety_Guardrail_Score,Final_AI_Score,HR_Recommendation
+Eve Johnson,Legal,5,5,5,5.0,TOP TIER: Agent Strategist (Immediate Hire)
+Alice Chen,Marketing,5,4,5,4.7,TOP TIER: Agent Strategist (Immediate Hire)
+Charlie Wang,HR,4,5,4,4.3,STRONG: Workflow Builder (Recommended)
+Bob Smith,Sales,3,3,2,2.7,POTENTIAL: Power User (Needs Training)
+David Lee,Customer Success,2,2,3,2.3,NOVICE: Basic User (Not Recommended for AI Roles)
