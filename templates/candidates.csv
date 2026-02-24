@@ -1,0 +1,7 @@
+Candidate_Name,Department,Logic_Workflow_Score,Tool_Knowledge_Score,Safety_Guardrail_Score
+"Alice Chen","Marketing",5,4,5
+"Bob Smith","Sales",3,3,2
+"Charlie Wang","HR",4,5,4
+"David Lee","Customer Success",2,2,3
+"Eve Johnson","Legal",5,5,5
+
