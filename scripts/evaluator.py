@@ -47,6 +47,6 @@ def process_candidates(input_file):
 
 if __name__ == "__main__":
     # Example usage:
-    # process_candidates('candidates.csv')
+    process_candidates('candidates.csv')
     print("AI Agent Talent Evaluator Script Loaded.")
 
