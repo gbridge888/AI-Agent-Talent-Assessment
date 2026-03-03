@@ -88,6 +88,22 @@ HTML_TEMPLATE = '''
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
+        @media (max-width: 768px) {
+            .score-group {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            .content {
+                padding: 15px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
         .score-field {
             background: white;
             padding: 15px;
