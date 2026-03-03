@@ -14,7 +14,7 @@ HTML_TEMPLATE = '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent 人才評估系統</title>
+    <title>AI Agent Talent Assessment</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -178,8 +178,8 @@ HTML_TEMPLATE = '''
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤖 AI Agent 人才評估系統</h1>
-            <p>根據 Logic/Workflow、Tool Knowledge、Safety/Ethics 三個維度評估候選人</p>
+            <h1>🤖 AI Agent Talent Assessment</h1>
+            <p>Evaluates candidates based on Logic/Workflow, Tool Knowledge, and Safety/Ethics</p>
         </div>
         
         <div class="content">
@@ -192,54 +192,54 @@ HTML_TEMPLATE = '''
             <form method="POST" action="/add">
                 <div class="candidate-form">
                     <div class="form-group">
-                        <label>👤 候選人姓名</label>
-                        <input type="text" name="name" placeholder="例如：張三" required>
+                        <label>👤 Candidate Name</label>
+                        <input type="text" name="name" placeholder="e.g.：張三" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>🏢 部門</label>
-                        <input type="text" name="department" placeholder="例如：Marketing" required>
+                        <label>🏢 Department</label>
+                        <input type="text" name="department" placeholder="e.g.：Marketing" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>📊 評估分數 (1-5)</label>
+                        <label>📊 Assessment Scores (1-5)</label>
                         <div class="score-group">
                             <div class="score-field">
                                 <label>Logic/Workflow (40%)</label>
                                 <input type="number" name="logic_score" min="1" max="5" step="0.1" placeholder="1-5" required>
-                                <small>分析問題、流程設計能力</small>
+                                <small>Problem analysis, workflow design</small>
                             </div>
                             <div class="score-field">
                                 <label>Tool Knowledge (30%)</label>
                                 <input type="number" name="tool_score" min="1" max="5" step="0.1" placeholder="1-5" required>
-                                <small>AI 工具使用熟練度</small>
+                                <small>AI tool proficiency</small>
                             </div>
                             <div class="score-field">
                                 <label>Safety/Ethics (30%)</label>
                                 <input type="number" name="safety_score" min="1" max="5" step="0.1" placeholder="1-5" required>
-                                <small>AI 安全同倫理意識</small>
+                                <small>AI safety and ethics awareness</small>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <button type="submit" class="btn">➕ 新增候選人</button>
+                <button type="submit" class="btn">➕ Add Candidate</button>
             </form>
             
             <div class="candidates-list">
-                <h2>📋 評估結果</h2>
+                <h2>📋 Assessment Results</h2>
                 
                 {% if candidates %}
                 <table>
                     <thead>
                         <tr>
-                            <th>候選人</th>
-                            <th>部門</th>
+                            <th>Candidate</th>
+                            <th>Department</th>
                             <th>Logic</th>
                             <th>Tool</th>
                             <th>Safety</th>
-                            <th>總分</th>
-                            <th>建議</th>
+                            <th>Total</th>
+                            <th>Recommendation</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -270,16 +270,16 @@ HTML_TEMPLATE = '''
                 </table>
                 
                 <div class="actions">
-                    <a href="/download"><button class="btn btn-secondary">📥 下載 CSV</button></a>
-                    <a href="/clear"><button class="btn btn-secondary" style="background: #dc3545;">🗑️ 清除全部</button></a>
+                    <a href="/download"><button class="btn btn-secondary">📥 Download CSV</button></a>
+                    <a href="/clear"><button class="btn btn-secondary" style="background: #dc3545;">🗑️ Clear All</button></a>
                 </div>
                 {% else %}
                 <div class="empty-state">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
-                    <p>暫時未有候選人資料</p>
-                    <p>請輸入上方資料開始評估</p>
+                    <p>No candidate data yet</p>
+                    <p>Enter data above to start assessment</p>
                 </div>
                 {% endif %}
             </div>
@@ -291,7 +291,7 @@ HTML_TEMPLATE = '''
 
 # 計算分數既 function
 def calculate_ai_readiness(logic_score, tool_score, safety_score):
-    """計算加權分數"""
+    """Calculate weighted score"""
     logic_weight = 0.4
     tool_weight = 0.3
     safety_weight = 0.3
@@ -302,7 +302,7 @@ def calculate_ai_readiness(logic_score, tool_score, safety_score):
     return round(total, 2)
 
 def generate_recommendation(score):
-    """產生聘請建議"""
+    """產生聘請Recommendation"""
     if score >= 4.5:
         return "TOP TIER"
     elif score >= 3.5:
@@ -334,7 +334,7 @@ def save_candidates(candidates):
 def index():
     candidates = load_candidates()
     
-    # 計算每個候選人既分數同建議
+    # 計算每個Candidate既分數同Recommendation
     processed = []
     for c in candidates:
         final_score = calculate_ai_readiness(c['logic_score'], c['tool_score'], c['safety_score'])
@@ -349,7 +349,7 @@ def index():
             'recommendation': recommendation
         })
     
-    # 按分數排序
+    # Sort by score
     processed.sort(key=lambda x: x['final_score'], reverse=True)
     
     return render_template_string(HTML_TEMPLATE, candidates=processed)
@@ -418,6 +418,6 @@ def clear_all():
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
-    print("🚀 啟動 AI Agent 人才評估系統...")
-    print(f"📍 請訪問: http://localhost:{port}")
+    print("🚀 Starting AI Agent Talent Assessment...")
+    print(f"📍 Please visit: http://localhost:{port}")
     app.run(debug=True, host='0.0.0.0', port=port)
