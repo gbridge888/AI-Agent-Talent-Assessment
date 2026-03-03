@@ -193,7 +193,7 @@ HTML_TEMPLATE = '''
                 <div class="candidate-form">
                     <div class="form-group">
                         <label>👤 Candidate Name</label>
-                        <input type="text" name="name" placeholder="e.g.：張三" required>
+                        <input type="text" name="name" placeholder="e.g. John Doe" required>
                     </div>
                     
                     <div class="form-group">
